@@ -73,7 +73,7 @@ class DictionaryController extends Controller
         //to in ghesmat mikham variable $email_address befrestam be function
         //dakhele send,amma daghighan nemidonam chejor!Akhe error mide ke nemishnase
 
-        $email = Mail::send('email', [], function ($message) {
+        $email = Mail::send('email', [], function ($message) use ( $email_address ) {
 
             $message->from('se.hmahjobi.1373@gmail.com', 'Admin');
 
