@@ -1,4 +1,7 @@
+@extends('page.home')
+  @section('left-content')
 <div class="panel panel-info">
+
   <div class="panel-heading">see dictionary persian to English</div>
   <div class="panel-body">
     <table class="table table-bordered table-hover">
@@ -20,3 +23,4 @@
 
   </div>
 </div>
+@stop

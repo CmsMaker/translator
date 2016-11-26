@@ -1,3 +1,6 @@
+@extends('page.home')
+
+  @section('left-content')
 <div class="panel panel-info">
   <div class="panel-heading">see admins</div>
   <div class="panel-body">
@@ -18,3 +21,4 @@
 
   </div>
 </div>
+@stop
