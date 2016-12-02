@@ -39,7 +39,6 @@
                   <li><a href="#">about</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="/register">register</a></li>
                   <li><a href="{{route('login')}}">login</a></li>
                 </ul>
               </div><!--/.nav-collapse -->
@@ -50,7 +49,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">setting<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="/logout">logout</a></li>
                   <li role="separator" class="divider"></li>

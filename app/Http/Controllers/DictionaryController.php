@@ -70,10 +70,8 @@ class DictionaryController extends Controller
 
     public function invite_user_post(Request $request){
         $email_address = $request->input('email');
-        //to in ghesmat mikham variable $email_address befrestam be function
-        //dakhele send,amma daghighan nemidonam chejor!Akhe error mide ke nemishnase
 
-        $email = Mail::send('email', [], function ($message) use ( $email_address ) {
+        $email = Mail::send('email', [], function ($message)use($email_address) {
 
             $message->from('se.hmahjobi.1373@gmail.com', 'Admin');
 
@@ -83,11 +81,9 @@ class DictionaryController extends Controller
 
       $user = Auth::user();
       $words = DB::select('select * from words');
-      // $message = 'your message sent to'.
       return view('page.home')
       ->with('user' , $user)
-      ->with('words' , $words)
-      ->with('message','your message sent to ');
+      ->with('words' , $words);
     }
 
     public function report(){
@@ -171,5 +167,71 @@ class DictionaryController extends Controller
       return view('page.dictionary-E-P')
       ->with('user' , $user)
       ->with('words' , $words);
+    }
+
+    public function choose_language($lan){
+      if($lan == 'pe'){
+        return view('translate.home')
+        ->with('lan', 'pe')
+        ->with('search', '')
+        ->with('word', '');
+
+      }elseif($lan == 'en'){
+        return view('translate.home')
+        ->with('lan', 'en')
+        ->with('search', '')
+        ->with('word', '');
+
+      }
+
+    }
+
+    public function result(Request $request){
+      $lan = $request->input('lan');
+      $word = $request->input('word');
+      if(!$word){
+          return redirect()->route('/');
+      }else{
+        if($lan == 'pe'){
+          $search = Word::where('pe_word', 'LIKE' , "%{$word}%")
+              ->get();
+          if($search->count() == 0){
+            return view('translate.home')
+            ->with('lan', 'pe')
+            ->with('search' , $word)
+            ->with('word', $word);
+          } else{
+            foreach ($search as $search) {
+              return view('translate.home')
+              ->with('lan', 'en')
+              ->with('search' , $search->en_word)
+              ->with('word', $word);
+            }
+          }
+        }elseif ($lan == 'en') {
+          $search = Word::where('en_word', 'LIKE' , "%{$word}%")
+              ->get();
+              if($search->count() == 0){
+                return view('translate.home')
+                ->with('lan', 'en')
+                ->with('search' , $word)
+                ->with('word', $word);
+              } else{
+                foreach ($search as $search) {
+                  return view('translate.home')
+                  ->with('lan', 'en')
+                  ->with('search' , $search->pe_word)
+                  ->with('word', $word);
+                }
+
+
+              }
+
+        }
+
+      }
+
+
+
     }
 }

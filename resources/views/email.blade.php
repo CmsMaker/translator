@@ -46,7 +46,7 @@
   <container>
     <row class="collapse">
       <columns small="6">
-        <p class="text-right">Network</p>
+        <p class="text-right">Translate</p>
       </columns>
     </row>
   </container>
@@ -59,12 +59,13 @@
   <row>
     <columns small="12">
 
-      <h1>Hi, Susan Calvin</h1>
-      <p class="lead">Thanks for choosing MyNetwork! Please activate your account by clicking the link below.</p>
-      <p>link</p>
+      <h1>Hi</h1>
+      <h3 class="lead">you invited to translator team</h3>
+      <p class="lead">you can sign up with below link</p>
+      <p>http://localhost:8000/register</p>
       <callout class="primary">
-        <p>Thanks and happy emailing</p>
-        <p>The myNetwork Team</p>
+        <p>Thanks</p>
+        <p>The Translator Team</p>
       </callout>
     </columns>
   </row>
@@ -75,7 +76,7 @@
     <row>
 
       <columns large="6">
-        <p>Email: <a href="mailto:foundation@zurb.com">MyEmail</a></p>
+        <a href="http://localhost:8000">translator</a>
       </columns>
     </row>
   </wrapper>
