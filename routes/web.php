@@ -17,12 +17,7 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index');
-Route::get('/', function () {
-    return view('translate.home')
-    ->with('lan', 'pe')
-    ->with('search', '')
-    ->with('word', '');
-});
+Route::get('/', 'DictionaryController@index');
 Route::get('/home', 'HomeController@index')->name('homepage');
 Route::get('/see/dictionary', 'DictionaryController@see_dictionary')->name('see_dictionary');
 Route::get('/add/word', 'DictionaryController@add_word_get')->name('add_word');
@@ -40,3 +35,6 @@ Route::get('/edit/user/{id}', 'DictionaryController@edit_user')->name('edit_user
 
 Route::get('/lang/{lan}','DictionaryController@choose_language')->name('lan');
 Route::post('/search','DictionaryController@result')->name('search');
+Route::get('/Profile','ProfileController@edit_page')->name('profile');
+Route::post('/Profile/user','ProfileController@edit_username')->name('username');
+Route::post('/Profile/email','ProfileController@edit_email')->name('email');

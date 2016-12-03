@@ -13,6 +13,18 @@ use Mail;
 
 class DictionaryController extends Controller
 {
+  public function index(){
+    $user = User::get();
+    if($user->count() == 0){
+      return view('translate.signin');
+    }else{
+      return view('translate.home')
+      ->with('lan', 'pe')
+      ->with('search', '')
+      ->with('word', '');
+    }
+
+  }
 
     public function add_word_get(){
         $user = Auth::user();
@@ -72,8 +84,9 @@ class DictionaryController extends Controller
         $email_address = $request->input('email');
 
         $email = Mail::send('email', [], function ($message)use($email_address) {
+            $admin_mail = User::where('id', 1)->first();
 
-            $message->from('se.hmahjobi.1373@gmail.com', 'Admin');
+            $message->from($admin_mail->email, 'Admin');
 
             $message->to($email_address)->subject('Invite to Translator');
 
@@ -88,12 +101,14 @@ class DictionaryController extends Controller
 
     public function report(){
         $user = Auth::user();
-        $count_users = Word::count();
-        $count_words = User::count();;
+        $count_words = Word::count();
+        $count_users = User::count();
+        $count_admins = User::where('level_id' , 1)->get();
         return view('page.report')
         ->with('user' , $user)
         ->with('count_users' , $count_users)
-        ->with('count_words' , $count_words);
+        ->with('count_words' , $count_words)
+        ->with('count_admins' , $count_admins->count());
     }
 
     public function delete_word($id){
@@ -231,7 +246,9 @@ class DictionaryController extends Controller
 
       }
 
-
-
     }
+
+
+
+
 }
