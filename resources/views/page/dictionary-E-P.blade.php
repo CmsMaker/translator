@@ -2,7 +2,7 @@
 
   @section('left-content')
 <div class="panel panel-info">
-  <div class="panel-heading">see dictionary English to persian</div>
+  <div class="panel-heading">کلمات دیکشنری</div>
   <div class="panel-body">
     <table class="table table-bordered table-hover">
       <tr>

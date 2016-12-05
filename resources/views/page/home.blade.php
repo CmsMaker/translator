@@ -5,7 +5,7 @@
     <div style="height:10px;"></div>
     <div class="row text-center">
         <h1>
-            Hi {{$user->name}}
+            خوش آمدید {{$user->name}}
         </h1>
     </div>
     <div style="height:40px;"></div>

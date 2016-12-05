@@ -36,7 +36,7 @@
           @if (Auth::guest())
               <div id="navbar" class="navbar-collapse collapse" >
                 <ul class="nav navbar-nav">
-                  <li><a href="#">about</a></li>
+                  <li><a href="#">در مورد ما</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="{{route('login')}}">ورود</a></li>
@@ -51,11 +51,11 @@
             <li><a href="{{route('see_dictionary')}}">دیکشنری</a></li>
             <li><a href="{{route('add_word')}}">ایجاد کلمه</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">setting<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">تنظیمات<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{route('profile')}}">edit profile</a></li>
+                    <li><a href="{{route('profile')}}">ویرایش پروفایل</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="/logout">logout</a></li>
+                    <li><a href="/logout">خروج</a></li>
                 </ul>
               </li>
             </ul>
