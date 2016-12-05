@@ -13,7 +13,7 @@
 
         </div>
         <div class="form-group">
-          <textarea  id="persian" name="persian" class="form-control" placeholder="{{$word->pe_word}}" value="{{$word->pe_word}}"></textarea>
+          <textarea  id="persian" name="persian" class="form-control" placeholder="{{$word->pe_word}}">{{$word->pe_word}}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">ویرایش</button>
       </form>
