@@ -31,7 +31,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">translator</a>
+            <a class="navbar-brand" href="/">ترجمه گر</a>
           </div>
           @if (Auth::guest())
               <div id="navbar" class="navbar-collapse collapse" >
@@ -39,7 +39,7 @@
                   <li><a href="#">about</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="{{route('login')}}">login</a></li>
+                  <li><a href="{{route('login')}}">ورود</a></li>
                 </ul>
               </div><!--/.nav-collapse -->
           @else
@@ -48,6 +48,8 @@
               <li><a href="/home" data-pjax='#pjax-container'>{{ Auth::user()->name }}</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{route('see_dictionary')}}">دیکشنری</a></li>
+            <li><a href="{{route('add_word')}}">ایجاد کلمه</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">setting<span class="caret"></span></a>
                 <ul class="dropdown-menu">

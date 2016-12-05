@@ -10,13 +10,10 @@
     </div>
     <div style="height:40px;"></div>
     <div class="row">
-      <div class="col-md-offset-1 col-md-7 text-left">
+      <div class="col-md-offset-3 col-md-6 text-left">
         @yield('left-content')
       </div>
-      <div class="col-md-4">
-        <div class="list-group">
-        </div>
-      </div>
+
     </div>
 
     @stop
