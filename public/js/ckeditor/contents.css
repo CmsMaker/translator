@@ -25,6 +25,7 @@ body
 
 	/* Fix for missing scrollbars with RTL texts. (#10488) */
 	word-wrap: break-word;
+	direction: rtl;
 }
 
 blockquote
