@@ -18,7 +18,9 @@
       </form>
       <div style="height:40px;"></div>
   </div>
-  <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-  <script>tinymce.init({ selector:'textarea' });</script>
+  <script src="/js/ckeditor/ckeditor.js"></script>
+  <script>
+        CKEDITOR.replace( 'persian' );
+  </script>
 </div>
 @stop
