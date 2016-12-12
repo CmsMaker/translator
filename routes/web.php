@@ -17,6 +17,7 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index');
+Route::get( '/home/logout' , 'HomeController@userLogOut' );
 Route::get('/', 'DictionaryController@index');
 Route::get('/home', 'HomeController@index')->name('homepage');
 Route::get('/see/dictionary', 'DictionaryController@see_dictionary')->name('see_dictionary');

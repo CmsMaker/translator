@@ -37,4 +37,10 @@ class HomeController extends Controller
         return view('page.home')
         ->with('user' , $user);
     }
+	
+	
+	public function userLogOut() {
+		Auth::logout();
+		return redirect( '/login' );
+	}
 }

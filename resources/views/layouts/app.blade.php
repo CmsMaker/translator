@@ -55,7 +55,7 @@
                 <ul class="dropdown-menu">
                     <li><a href="{{route('profile')}}">ویرایش پروفایل</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="/logout">خروج</a></li>
+                    <li><a href="/home/logout">خروج</a></li>
                 </ul>
               </li>
             </ul>
