@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-2">
       <div style="height:90px;"></div>
-      <button type="submit" class="col-md-offset-2 btn btn-primary">
+      <button type="submit" class="col-md-offset-1 btn btn-primary">
               @if($lan == 'pe')
                 Translate to english
               @elseif($lan == 'en')
@@ -25,7 +25,7 @@
               @endif
           </button>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5">
       <div style="height:50px;"></div>
         <div class="row">
           <div class="word">{{$search}}</div>
