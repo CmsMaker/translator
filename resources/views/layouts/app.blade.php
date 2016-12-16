@@ -50,6 +50,9 @@
             <ul class="nav navbar-nav navbar-right">
             <li><a href="{{route('see_dictionary')}}">دیکشنری</a></li>
             <li><a href="{{route('add_word')}}">ایجاد کلمه</a></li>
+            @if($user->level_id == 1)
+                <li><a href="{{route('see_user')}}">کاربران</a></li>
+            @endif
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">تنظیمات<span class="caret"></span></a>
                 <ul class="dropdown-menu">

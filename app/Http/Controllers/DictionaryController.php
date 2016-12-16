@@ -154,9 +154,8 @@ class DictionaryController extends Controller
 
       $user = Auth::user();
       $users = DB::select('select * from users');
-      return view('page.seeusers')
-          ->with('user' , $user)
-          ->with('users' , $users);
+      return redirect()
+      ->route('homepage');
     }
 
     public function edit_word_get($id){
