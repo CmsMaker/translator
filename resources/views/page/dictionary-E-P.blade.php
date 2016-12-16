@@ -16,8 +16,14 @@
         <td>{{$word->en_word}}</td>
         @if($user->level_id == 1)
             <td>
-              <a href="{{route('edit_word',['id' => $word->id])}}" class="btn btn-primary">Edit</a>
-              <a href="{{route('delete_word',['id' => $word->id])}}" class="btn btn-primary">Delete</a>
+              <a href="{{route('edit_word',['id' => $word->id])}}" class="btn btn-primary"
+                data-toggle="tooltip" data-placement="bottom" title="ویرایش">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+
+
+              <a href="{{route('delete_word',['id' => $word->id])}}" class="btn btn-primary"
+                data-toggle="tooltip" data-placement="bottom" title="حذف">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
           </td>
         @endif
       </tr>
