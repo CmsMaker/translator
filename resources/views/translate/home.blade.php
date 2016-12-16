@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div style="height:20px;"></div>
-            <textarea name="word" id="word" rows="6" cols="50" class="align-left">{{$word}}</textarea>
+            <textarea name="word" id="word" rows="6" cols="50" class="align-left">{{$word}</textarea>
       </div>
 
     </div>
@@ -28,7 +28,9 @@
     <div class="col-md-5">
       <div style="height:50px;"></div>
         <div class="row">
-          <div class="word">{{$search}}</div>
+          <div class="word">
+            {!!$search!!}
+          </div>
         </div>
     </div>
 
