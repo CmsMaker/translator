@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div style="height:20px;"></div>
-            <textarea name="word" id="word" rows="6" cols="50" class="align-left">{{$word}</textarea>
+            <textarea name="word" id="word" rows="6" cols="50" class="align-left">{{$word}}</textarea>
       </div>
 
     </div>
