@@ -184,19 +184,25 @@ class DictionaryController extends Controller
     }
 
     public function choose_language($lan){
-      if($lan == 'pe'){
-        return view('translate.home')
-        ->with('lan', 'pe')
-        ->with('search', '')
-        ->with('word', '');
 
-      }elseif($lan == 'en'){
-        return view('translate.home')
-        ->with('lan', 'en')
-        ->with('search', '')
-        ->with('word', '');
+      $data = $lan;
+      return response()->json([
+        'lan' => $data
+      ]);
 
-      }
+      // if($lan == 'pe'){
+      //   return view('translate.home')
+      //   ->with('lan', 'pe')
+      //   ->with('search', '')
+      //   ->with('word', '');
+      //
+      // }elseif($lan == 'en'){
+      //   return view('translate.home')
+      //   ->with('lan', 'en')
+      //   ->with('search', '')
+      //   ->with('word', '');
+      //
+      // }
 
     }
 

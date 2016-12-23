@@ -14,6 +14,7 @@
               @yield('content')
       </div>
       <script src="{{ elixir('js/all.js') }}"></script>
+      <script src="/js/ajax.js"></script>
         <script>$(function () {
             $('[data-toggle="tooltip"]').tooltip()
           })
