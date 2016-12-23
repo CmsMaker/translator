@@ -185,24 +185,19 @@ class DictionaryController extends Controller
 
     public function choose_language($lan){
 
-      $data = $lan;
-      return response()->json([
-        'lan' => $data
-      ]);
+      if($lan == 'pe'){
+        return view('translate.home')
+        ->with('lan', 'pe')
+        ->with('search', '')
+        ->with('word', '');
 
-      // if($lan == 'pe'){
-      //   return view('translate.home')
-      //   ->with('lan', 'pe')
-      //   ->with('search', '')
-      //   ->with('word', '');
-      //
-      // }elseif($lan == 'en'){
-      //   return view('translate.home')
-      //   ->with('lan', 'en')
-      //   ->with('search', '')
-      //   ->with('word', '');
-      //
-      // }
+      }elseif($lan == 'en'){
+        return view('translate.home')
+        ->with('lan', 'en')
+        ->with('search', '')
+        ->with('word', '');
+
+      }
 
     }
 
