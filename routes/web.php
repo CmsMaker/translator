@@ -18,7 +18,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get( '/home/logout' , 'HomeController@userLogOut' );
-Route::get('/', 'DictionaryController@index');
+Route::get('/', 'DictionaryController@index')->name('translator');
 Route::get('/home', 'HomeController@index')->name('homepage');
 Route::get('/see/dictionary', 'DictionaryController@see_dictionary')->name('see_dictionary');
 Route::get('/add/word', 'DictionaryController@add_word_get')->name('add_word');
@@ -34,7 +34,7 @@ Route::get('/edit/word/{id}', 'DictionaryController@edit_word_get')->name('edit_
 Route::post('/edit/word/{id}', 'DictionaryController@edit_word_post');
 Route::get('/edit/user/{id}', 'DictionaryController@edit_user')->name('edit_user');
 
-Route::get('/lang/{lan}','DictionaryController@choose_language')->name('lan');
+
 Route::post('/search','DictionaryController@result')->name('search');
 Route::get('/Profile','ProfileController@edit_page')->name('profile');
 Route::post('/Profile/user','ProfileController@edit_username')->name('username');

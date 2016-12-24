@@ -183,29 +183,29 @@ class DictionaryController extends Controller
       ->with('words' , $words);
     }
 
-    public function choose_language($lan){
-
-      if($lan == 'pe'){
-        return view('translate.home')
-        ->with('lan', 'pe')
-        ->with('search', '')
-        ->with('word', '');
-
-      }elseif($lan == 'en'){
-        return view('translate.home')
-        ->with('lan', 'en')
-        ->with('search', '')
-        ->with('word', '');
-
-      }
-
-    }
+    // public function choose_language($lan){
+    //
+    //   if($lan == 'pe'){
+    //     return view('translate.home')
+    //     ->with('lan', 'pe')
+    //     ->with('search', '')
+    //     ->with('word', '');
+    //
+    //   }elseif($lan == 'en'){
+    //     return view('translate.home')
+    //     ->with('lan', 'en')
+    //     ->with('search', '')
+    //     ->with('word', '');
+    //
+    //   }
+    //
+    // }
 
     public function result(Request $request){
       $lan = $request->input('lan');
       $word = $request->input('word');
       if(!$word){
-          return redirect()->route('/');
+          return redirect()->route('translator');
       }else{
         if($lan == 'pe'){
           $search = Word::where('pe_word', 'LIKE' , "%{$word}%")
