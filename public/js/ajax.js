@@ -12,4 +12,17 @@ $(document).ready(function(){
       input_lan.value = 'pe';
       lan.innerHTML = 'Translate to English';
   });
+
+  $(".translate").click(function(){
+    alert('sepideh');
+    $.post("search",
+    {
+        name: "Donald Duck",
+        city: "Duckburg"
+    },
+    function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+});
+
 });
