@@ -26,10 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $level = User::where('id', 1)->first();
+        $level = User::first();
+        $id = $level->id;
         if($level->level_id == 2){
           DB::table('users')
-              ->where('id', 1)
+              ->where('id', $id)
               ->update([
                   'level_id' => 1]);
             }
@@ -37,8 +38,8 @@ class HomeController extends Controller
         return view('page.home')
         ->with('user' , $user);
     }
-	
-	
+
+
 	public function userLogOut() {
 		Auth::logout();
 		return redirect( '/login' );
