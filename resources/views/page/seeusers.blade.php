@@ -6,9 +6,9 @@
   <div class="panel-body">
     <table class="table table-bordered table-hover">
       <tr>
-        <td>کاربر</td>
-        <td>آدرس ایمیل</td>
-          <td>  </td>
+        <th>کاربر</th>
+        <th>آدرس ایمیل</th>
+          <th>  </th>
       </tr>
       @foreach($users as $user)
             <tr>

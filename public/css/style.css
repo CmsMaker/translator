@@ -12,3 +12,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', end
     height: 149px;
     background-color: white;
   }
+
+  td{
+      width: 60px;
+  }
