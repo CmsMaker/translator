@@ -19,7 +19,7 @@ class DictionaryController extends Controller
       return view('translate.signin');
     }else{
       $user = Auth::user();
-      if($user->count() != 0){
+      if( isset( $user ) && $user->count() != 0){
         return view('translate.home')
         ->with('lan', 'pe')
         ->with('search', '')
