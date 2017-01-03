@@ -18,10 +18,20 @@ class DictionaryController extends Controller
     if($user->count() == 0){
       return view('translate.signin');
     }else{
-      return view('translate.home')
-      ->with('lan', 'pe')
-      ->with('search', '')
-      ->with('word', '');
+      $user = Auth::user();
+      if($user->count() != 0){
+        return view('translate.home')
+        ->with('lan', 'pe')
+        ->with('search', '')
+        ->with('word', '')
+        ->with('user' , $user);
+      }else{
+        return view('translate.home')
+        ->with('lan', 'pe')
+        ->with('search', '')
+        ->with('word', '');
+      }
+
     }
 
   }
@@ -124,9 +134,8 @@ class DictionaryController extends Controller
     public function delete_user($id){
       if($id == Auth::user()->id){
           User::where(['id'=>$id])->delete();
-          $user = Auth::user();
-          $users = DB::select('select * from users');
-          return view('translate.home');
+          return redirect()
+          ->route('translator');
       }else{
         User::where(['id'=>$id])->delete();
         $user = Auth::user();

@@ -16,7 +16,7 @@
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index');
+
 Route::get( '/home/logout' , 'HomeController@userLogOut' );
 Route::get('/', 'DictionaryController@index')->name('translator');
 Route::get('/home', 'HomeController@index')->name('homepage');
