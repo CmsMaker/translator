@@ -11,7 +11,7 @@
       </div>
       <div class="row">
         <div style="height:20px;"></div>
-        <form class="" action="{{route('search')}}" method="post">
+        
           <input type="hidden" id="lan" name="lan">
           {{ csrf_field() }}
           <textarea name="word" id="word" rows="6" cols="50" class="align-left">{{$word}}</textarea>
@@ -20,10 +20,10 @@
     </div>
     <div class="col-md-2">
       <div style="height:90px;"></div>
-      <button type="submit" class="translate col-md-offset-1 btn btn-primary" id="translate">
+      <button  class="translate col-md-offset-1 btn btn-primary" id="translate">
         Translate to English
       </button>
-    </form>
+
     </div>
     <div class="col-md-5">
       <div style="height:50px;"></div>

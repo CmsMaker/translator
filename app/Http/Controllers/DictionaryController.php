@@ -201,8 +201,15 @@ class DictionaryController extends Controller
     //
     // }
 
-    public function result(Request $request){
-      dd($request->input('name'));
+    public function result( Request $request ){
+		
+		$params = $request->all();
+		
+		// $name = $params[ 'name' ]; , ...
+		
+		return response()->json(array('msg'=> true), 200);
+		
+    //  return response()->json( [ 'ok' => true ] );
 
     //   $lan = $request->input('lan');
     //   $word = $request->input('word');

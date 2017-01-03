@@ -14,15 +14,22 @@ $(document).ready(function(){
   });
 
   $(".translate").click(function(){
-    alert('sepideh');
-    $.post("search",
-    {
-        name: "Donald Duck",
-        city: "Duckburg"
-    },
-    function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
-    });
-});
+	  
+	 
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+		}
+	})
+
+    $.post( "/search", { name: "Donald Duck", city: "Duckburg" } , function(data){
+		console.log( "data Back ! " + data );
+	}, "json")
+	.fail( function(data) {
+		console.log( data );
+	});
+	
+	
+  });
 
 });
