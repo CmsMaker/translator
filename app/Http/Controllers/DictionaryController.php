@@ -63,10 +63,10 @@ class DictionaryController extends Controller
 
     public function see_user(){
       $user = Auth::user();
-      $users = DB::select('select * from users');
+      $users = User::paginate(5);
       return view('page.seeusers')
-      ->with('user' , $user)
-      ->with('users' , $users);
+        ->with('user' , $user)
+        ->with('users' , $users);
     }
 
     public function see_admin(){
@@ -77,7 +77,7 @@ class DictionaryController extends Controller
 
     public function see_dictionary(){
         $user = Auth::user();
-        $words = DB::select('select * from words');
+        $words = Word::paginate(5);
         return view('page.dictionary-E-P')
         ->with('user' , $user)
         ->with('words' , $words);
@@ -104,8 +104,8 @@ class DictionaryController extends Controller
       $user = Auth::user();
       $words = DB::select('select * from words');
       return view('page.home')
-      ->with('user' , $user)
-      ->with('words' , $words);
+        ->with('user' , $user)
+        ->with('words' , $words);
     }
 
     public function report(){
@@ -114,19 +114,19 @@ class DictionaryController extends Controller
         $count_users = User::count();
         $count_admins = User::where('level_id' , 1)->get();
         return view('page.report')
-        ->with('user' , $user)
-        ->with('count_users' , $count_users)
-        ->with('count_words' , $count_words)
-        ->with('count_admins' , $count_admins->count());
+          ->with('user' , $user)
+          ->with('count_users' , $count_users)
+          ->with('count_words' , $count_words)
+          ->with('count_admins' , $count_admins->count());
     }
 
     public function delete_word($id){
       Word::where(['id'=>$id])->delete();
       $user = Auth::user();
-      $words = DB::select('select * from words');
+      $words = Word::paginate(5);
       return view('page.dictionary-E-P')
-      ->with('user' , $user)
-      ->with('words' , $words);
+        ->with('user' , $user)
+        ->with('words' , $words);
 
     }
 
@@ -138,7 +138,7 @@ class DictionaryController extends Controller
       }else{
         User::where(['id'=>$id])->delete();
         $user = Auth::user();
-        $users = DB::select('select * from users');
+        $users = User::paginate(5);
         return view('page.seeusers')
             ->with('user' , $user)
             ->with('users' , $users);
@@ -161,17 +161,18 @@ class DictionaryController extends Controller
       }
 
       $user = Auth::user();
-      $users = DB::select('select * from users');
-      return redirect()
-      ->route('homepage');
+      $users = User::paginate(5);
+      return view('page.seeusers')
+          ->with('user' , $user)
+          ->with('users' , $users);
     }
 
     public function edit_word_get($id){
       $user = Auth::user();
       $word = Word::where(['id' => $id])->first();
       return view('page.editword')
-      ->with('user' , $user)
-      ->with('word' , $word);
+        ->with('user' , $user)
+        ->with('word' , $word);
     }
 
 
@@ -180,41 +181,18 @@ class DictionaryController extends Controller
       $pe_word = $request->input('persian');
 
         DB::table('words')
-              ->where('id', $id)
-              ->update([
-                'pe_word' => $pe_word,
-                'en_word' => $en_word]);
+          ->where('id', $id)
+          ->update([
+          'pe_word' => $pe_word,
+          'en_word' => $en_word]);
         $user = Auth::user();
-        $words = DB::select('select * from words');
+        $words = Word::paginate(5);
       return view('page.dictionary-E-P')
-      ->with('user' , $user)
-      ->with('words' , $words);
+        ->with('user' , $user)
+        ->with('words' , $words);
     }
 
-    // public function choose_language($lan){
-    //
-    //   if($lan == 'pe'){
-    //     return view('translate.home')
-    //     ->with('lan', 'pe')
-    //     ->with('search', '')
-    //     ->with('word', '');
-    //
-    //   }elseif($lan == 'en'){
-    //     return view('translate.home')
-    //     ->with('lan', 'en')
-    //     ->with('search', '')
-    //     ->with('word', '');
-    //
-    //   }
-    //
-    // }
-
     public function result(Request $request){
-      // dd($request->input('lan'));
-      // return response()->json([
-      //     'msg' => 'sepideh'
-      //   ]);
-
       $lan = $request->input('lan');
       $word = $request->input('word');
       if($lan == ""){
@@ -253,10 +231,9 @@ class DictionaryController extends Controller
                     ]);
                 }
               }
-        }
-      }
-
-    }
+          }
+       }
+     }
 
 
 

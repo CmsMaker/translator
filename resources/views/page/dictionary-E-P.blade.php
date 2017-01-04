@@ -32,4 +32,10 @@
 
   </div>
 </div>
+<div class="row">
+  <div class="col-md-offset-9">
+    {{$words->links()}}
+  </div>
+</div>
+
 @stop
