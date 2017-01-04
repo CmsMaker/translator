@@ -51,6 +51,7 @@
             <li><a href="{{route('report')}}">گزارشات ترجمه گر</a></li>
             @if($user->level_id == 1)
                 <li><a href="{{route('see_user')}}">کاربران</a></li>
+                <li><a href="{{route('invite_user')}}" >ارسال دعوتنامه </a></li>
             @endif
             <li><a href="{{route('add_word')}}">ایجاد کلمه</a></li>
             <li><a href="{{route('see_dictionary')}}">دیکشنری</a></li>
