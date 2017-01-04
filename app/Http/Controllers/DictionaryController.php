@@ -19,7 +19,7 @@ class DictionaryController extends Controller
       return view('translate.signin');
     }else{
       $user = Auth::user();
-      if( isset( $user ) && $user->count() != 0){
+      if($user  != null){
         return view('translate.home')
         ->with('lan', 'pe')
         ->with('search', '')
@@ -31,7 +31,6 @@ class DictionaryController extends Controller
         ->with('search', '')
         ->with('word', '');
       }
-
     }
 
   }
@@ -210,60 +209,53 @@ class DictionaryController extends Controller
     //
     // }
 
-    public function result( Request $request ){
-		
-		$params = $request->all();
-		
-		// $name = $params[ 'name' ]; , ...
-		
-		return response()->json(array('msg'=> true), 200);
-		
-    //  return response()->json( [ 'ok' => true ] );
+    public function result(Request $request){
+      // dd($request->input('lan'));
+      // return response()->json([
+      //     'msg' => 'sepideh'
+      //   ]);
 
-    //   $lan = $request->input('lan');
-    //   $word = $request->input('word');
-    //   if(!$word){
-    //       return redirect()->route('translator');
-    //   }else{
-    //     if($lan == 'pe'){
-    //       $search = Word::where('pe_word', 'LIKE' , "%{$word}%")
-    //           ->get();
-    //       if($search->count() == 0){
-    //         return view('translate.home')
-    //         ->with('lan', 'pe')
-    //         ->with('search' , $word)
-    //         ->with('word', $word);
-    //       } else{
-    //         foreach ($search as $search) {
-    //           return view('translate.home')
-    //           ->with('lan', 'en')
-    //           ->with('search' , $search->en_word)
-    //           ->with('word', $word);
-    //         }
-    //       }
-    //     }elseif ($lan == 'en') {
-    //       $search = Word::where('en_word', 'LIKE' , "%{$word}%")
-    //           ->get();
-    //           if($search->count() == 0){
-    //             return view('translate.home')
-    //             ->with('lan', 'en')
-    //             ->with('search' , $word)
-    //             ->with('word', $word);
-    //           } else{
-    //             foreach ($search as $search) {
-    //               return view('translate.home')
-    //               ->with('lan', 'en')
-    //               ->with('search' , $search->pe_word)
-    //               ->with('word', $word);
-    //             }
-    //
-    //
-    //           }
-    //
-    //     }
-    //
-    //   }
-    //
+      $lan = $request->input('lan');
+      $word = $request->input('word');
+      if($lan == ""){
+        $lan = 'en';
+      }
+      if(!$word){
+        return response()->json([
+            'msg' => ''
+          ]);
+      }else{
+        if($lan == 'pe'){
+          $search = Word::where('pe_word', 'LIKE' , "%{$word}%")
+              ->get();
+          if($search->count() == 0){
+            return response()->json([
+                'msg' => $word
+              ]);
+          } else{
+            foreach ($search as $search) {
+              return response()->json([
+                  'msg' => $search->en_word
+                ]);
+            }
+          }
+        }elseif ($lan == 'en') {
+          $search = Word::where('en_word', 'LIKE' , "%{$word}%")
+              ->get();
+              if($search->count() == 0){
+                return response()->json([
+                    'msg' => $word
+                  ]);
+              } else{
+                foreach ($search as $search) {
+                  return response()->json([
+                      'msg' => $search->pe_word
+                    ]);
+                }
+              }
+        }
+      }
+
     }
 
 
