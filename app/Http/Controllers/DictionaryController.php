@@ -93,7 +93,7 @@ class DictionaryController extends Controller
         $email_address = $request->input('email');
 
         $email = Mail::send('email', [], function ($message)use($email_address) {
-            $admin_mail = User::where('id', 1)->first();
+            $admin_mail = User::first();
 
             $message->from($admin_mail->email, 'Admin');
 
